@@ -64,7 +64,7 @@ docker run --rm -v "${PWD}/output:/app/output" -v sam-model-cache:/models -v "${
 ## Тесты
 
 ```powershell
-docker run --rm -v "${PWD}/output:/app/output" -v sam-model-cache:/models --entrypoint pytest sam-point-demo -q
+docker run --rm -v "${PWD}/output:/app/output" -v sam-model-cache:/models --entrypoint pytest sam-point-demo -q -s
 ```
 
 Тесты запускают модель и проверяют IoU предсказанной маски с известной эталонной маской синтетического мяча: порог — не ниже `0.60`. Значение `reference_iou` появится в консоли и `result.json`; изображения `overlay.png`, `mask.png` и `reference_mask.png` сохраняются в `output`. На первом запуске тест также скачает чекпойнт.
@@ -72,6 +72,7 @@ docker run --rm -v "${PWD}/output:/app/output" -v sam-model-cache:/models --entr
 ## Лицензия и область проверки
 
 Официальный код SAM и модель SAM лицензированы по Apache 2.0. Демо запускает инференс на тестовой картинке, но не повторяет полное обучение или оценивание статьи на датасете SA-1B.
+
 
 
 
