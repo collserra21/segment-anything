@@ -53,6 +53,7 @@ def test_sam_creates_mask_with_minimum_reference_iou_and_visible_artifacts(predi
     reference = np.asarray(Image.open(reference_path).convert("L")) > 0
     mask, score = segment(predictor, image, 256, 185)
     iou = intersection_over_union(mask, reference)
+    print(f"Reference-mask IoU: {iou:.3f}")
 
     assert mask.shape == (image.height, image.width)
     assert 0 < int(mask.sum()) < mask.size
@@ -69,4 +70,6 @@ def test_sam_creates_mask_with_minimum_reference_iou_and_visible_artifacts(predi
     result = json.loads((output / "result.json").read_text(encoding="utf-8"))
     assert result["mask_pixels"] > 0
     assert result["reference_iou"] >= 0.60
+
+
 
