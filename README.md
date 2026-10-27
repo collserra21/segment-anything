@@ -181,3 +181,8 @@ If you use SAM or SA-1B in your research, please use the following BibTeX entry.
   year={2023}
 }
 ```
+
+
+## Docker demo (Windows)
+
+This fork includes a CPU-based Docker demo for point-prompted SAM segmentation. See the [Docker setup and usage instructions](docker/README.md). The demo saves a color mask overlay, a binary mask, and JSON metadata.
